@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dan's Clicker</title>
+  <link href="clickerstyle.css" type="text/css" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/png" />
+</head>
+<body>
+  <div id=titlebar>
+  <h1>Dan's Big Clicker</h1>
+</div>
+  <div id="buttonzone">
+  <button type="button" id="herobutton" onclick="increment()">CLICK</button>
+</div>
+<div id="counter">
+  <h2 id="bigcounter"></h2>
+</div>
+<div id="upgradezone">
+  <div id=playerinfo>
+  <h3 id=playerlevel></h3>
+  </div>
+<button type="button" id="upbutton" onclick="upgrade()">Increase Power Level</button>
+</div>
+<script src="jquery-3.4.1.js"></script>
+<script>
+
+var i = 0;
+var powerLevel = 1;
+var upgradeCost = 100;
+
+function increment(){
+  i += (1*powerLevel);
+  document.getElementById("bigcounter").innerHTML=i;
+}
+
+function upgrade(){
+  if (i>=upgradeCost){
+    document.getElementById("bigcounter").innerHTML= i -= upgradeCost;
+    powerLevel += 1;
+    upgradeCost = upgradeCost*2;
+    document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
+  }
+  else {
+    alert("You need " + upgradeCost + " points to increase your Power Level!")
+  }
+}
+
+</script>
+</body>
+</html>

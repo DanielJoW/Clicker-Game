@@ -8,6 +8,7 @@ var friendCost = 100;
 var achievementOne = false;
 var achievementTwo = false;
 var achievementThree = false;
+var achievementsMax = false;
 
 /*Naming Function with Easter Eggs */
 
@@ -60,7 +61,7 @@ if (i >= 100000 && achievementOne === false){
 },10000);
 
 setInterval(function(){
-if (powerLevel === 10 && achievementTwo === false){
+if (powerLevel >= 10 && achievementTwo === false){
   var element = document.getElementById("upbutton");
   element.classList.add("upbutton10");
   alert("You reached a Power Level of 10! Enjoy a gold power button.");
@@ -69,11 +70,56 @@ if (powerLevel === 10 && achievementTwo === false){
 },10000);
 
 setInterval(function(){
-if (clickerFriends === 10 && achievementThree === false){
+if (clickerFriends >= 10 && achievementThree === false){
   var element = document.getElementById("clickerbutton");
   element.classList.add("friendbutton10");
   alert("You have 10 invisible clickers! Enjoy a gold clicker enlister.");
   achievementThree = true;
+}
+},10000);
+
+/*Return to this later. There is for sure a better way to count achievements.*/
+
+setInterval(function(){
+if (achievementOne === true && achievementTwo === false && achievementThree === false){
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 1/3";
+}
+},10000);
+
+setInterval(function(){
+if (achievementOne === false && achievementTwo === true && achievementThree === false){
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 1/3";
+}
+},10000);
+
+setInterval(function(){
+if (achievementOne === false && achievementTwo === false && achievementThree === true){
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 1/3";
+}
+},10000);
+
+setInterval(function(){
+if (achievementOne === true && achievementTwo === true && achievementThree === false){
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 2/3";
+}
+},10000);
+
+setInterval(function(){
+if (achievementOne === false && achievementTwo === true && achievementThree === true){
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 2/3";
+}
+},10000);
+
+setInterval(function(){
+if (achievementOne === true && achievementTwo === false && achievementThree === true){
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 2/3";
+}
+},10000);
+
+setInterval(function(){
+if (achievementOne === true && achievementTwo === true && achievementThree === true && achievementsMax === false){
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 3/3";
+  achievementsMax = true;
 }
 },10000);
 

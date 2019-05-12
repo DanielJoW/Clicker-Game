@@ -17,6 +17,8 @@ window.onload = function namePlayer(){
   document.getElementById("playertitle").innerHTML= playerName+"'s Big Clicker";
 }}
 
+/* Functions that must repeat constantly */
+
 setInterval(function(){
   document.getElementById("clicktotaltitle").innerHTML= "The Big Clicker ("+i+")";
 },5000);
@@ -36,6 +38,8 @@ setInterval(function(){
   }
 }, 1000);
 
+/* Key Functions */
+
 function increment(){
   i += (1*powerLevel);
   document.getElementById("bigcounter").innerHTML=i;
@@ -45,7 +49,7 @@ function upgrade(){
   if (i>=powerCost){
     document.getElementById("bigcounter").innerHTML= i -= powerCost;
     powerLevel += 1;
-    powerCost = powerCost*2;
+    powerCost = Math.round(powerCost*1.5);
     document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
   }
   else {
@@ -56,8 +60,8 @@ function buyClicker(){
   if (i>=friendCost){
     document.getElementById("bigcounter").innerHTML= i -= friendCost;
     clickerFriends += 1;
-    friendCost = friendCost*2;
-    document.getElementById("clickeramount").innerHTML= "Clicker Friends: " + clickerFriends;
+    friendCost = Math.round(friendCost*1.5);
+    document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
   }
   else {
     alert("You need " + friendCost + " points to enlist a Clicker Friend!")

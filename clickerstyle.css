@@ -1,3 +1,4 @@
+
 h1 {
 text-align: center;
 font-family: Helvetica;
@@ -26,9 +27,20 @@ font-family: Helvetica;
 #upbutton {
   margin: auto;
   display: block;
-  width: 100px;
+  width: 150px;
   height: 50px;
   background-color: blue;
+  color: white;
+  font-family: impact;
+  font-size: 15px;
+}
+
+#clickerbutton {
+  margin: auto;
+  display: block;
+  width: 150px;
+  height: 50px;
+  background-color: purple;
   color: white;
   font-family: impact;
   font-size: 15px;
@@ -38,4 +50,30 @@ h2 {
 text-align: center;
 font-family: Helvetica;
 font-size: 40px;
+}
+
+/* Tooltip container */
+.tooltip {
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: black;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  z-index: 1;
+  margin-left: 740px;
+
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

@@ -5,6 +5,9 @@ var powerLevel = 1;
 var clickerFriends = 0;
 var powerCost = 100;
 var friendCost = 100;
+var achievementOne = false;
+var achievementTwo = false;
+var achievementThree = false;
 
 /*Naming Function with Easter Eggs */
 
@@ -44,6 +47,35 @@ setInterval(function(){
     document.getElementById("herobutton").innerHTML=i;
   }
 }, 1000);
+
+/*Achievements*/
+
+setInterval(function(){
+if (i >= 100000 && achievementOne === false){
+  var element = document.getElementById("herobutton");
+  element.classList.add("herobutton100k");
+  alert("You hit 100000 points! Enjoy this gold novelty button.");
+  achievementOne = true;
+}
+},10000);
+
+setInterval(function(){
+if (powerLevel === 10 && achievementTwo === false){
+  var element = document.getElementById("upbutton");
+  element.classList.add("upbutton10");
+  alert("You reached a Power Level of 10! Enjoy a gold power button.");
+  achievementTwo = true;
+}
+},10000);
+
+setInterval(function(){
+if (clickerFriends === 10 && achievementThree === false){
+  var element = document.getElementById("clickerbutton");
+  element.classList.add("friendbutton10");
+  alert("You have 10 invisible clickers! Enjoy a gold clicker enlister.");
+  achievementThree = true;
+}
+},10000);
 
 /* Key Functions */
 

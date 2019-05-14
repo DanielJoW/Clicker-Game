@@ -8,19 +8,16 @@
   <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
-  <div id=titlebar>
-  <h1 id="playertitle"></h1>
-</div>
+  <div id="gridcontainer">
   <div id="buttonzone">
   <button type="button" id="herobutton" onclick="increment()">CLICK</button>
 </div>
-<div id="upgradezone">
-  <div id=playerinfo>
-  <h3 id=playerlevel>Power Level: 1</h3>
-  <h3 id=clickeramount>Invisible Clickers: 0</h3>
-  <div id="clickerindication">
-  </div>
+<div id=playerstats>
+<h3 id="playertitle"></h3>
+<h4 id=playerlevel>Power Level: 1</h4>
+<h4 id=clickeramount>Invisible Clickers: 0</h4>
 </div>
+<div id="upgradezone">
 <div id=powerbutton class= "tooltip">
 <button type="button" id="upbutton" onclick="upgrade()">Increase Power Level</button>
 <span class="tooltiptext" id="powerBuy"></span>
@@ -28,9 +25,18 @@
 <div id= friendbutton class= "tooltip">
 <button type="button" id="clickerbutton" onclick="buyClicker()">Enlist Invisible Clicker</button>
 <span class="tooltiptext" id="friendBuy"></span>
+</div>
+</div>
 <div id=achievements>
   <h3 id=achievmentcounter>Achievements Unlocked: 0/3</h3>
+  <h4 id=poweracheivement>Reach a Power Level of 20.</h3>
+  <h4 id=clickeracheivement>Enlist 20 Invisible Clickers.</h3>
+  <h4 id=pointsacheivement>Reach 100,000 points.</h3>
 </div>
+<div id=legacy>
+  <h3>All Time Stats</h3>
+  <h4 id=clicksmade>You haven't clicked yet!</h4>
+  <h4 id=timeplayed>You've played 0 minutes.</h4>
 </div>
 </div>
 </body>

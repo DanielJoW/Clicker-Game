@@ -5,7 +5,7 @@ var powerLevel = 1;
 var clickerFriends = 0;
 var powerCost = 100;
 var friendCost = 100;
-var bonusCost = 1000;
+var bonusCost = 3333;
 var bonusBarrier = false;
 var achievementCount = 0;
 var achievementOne = false;
@@ -54,20 +54,38 @@ function multiplier(){
   bonusBarrier = true;
   bonusCost = bonusCost*3;
   var bonusTimer = timePlaying;
-  powerLevel = powerLevel+3;
-  clickerFriends = clickerFriends+3;
+  var bonusPower = powerLevel*3
+  var bonusClicks = clickerFriends*3
+  powerLevel = powerLevel + bonusPower;
+  clickerFriends = clickerFriends + bonusClicks;
   setInterval(function(){
     if (bonusTimer>=(timePlaying-30)){
       var element = document.getElementById("gridcontainer");
+      element.classList.add("gridcontainermultiplied");
+      var element = document.getElementById("herobutton");
+      element.classList.add("gridcontainermultiplied");
+      var element = document.getElementById("upbutton");
+      element.classList.add("gridcontainermultiplied");
+      var element = document.getElementById("clickerbutton");
+      element.classList.add("gridcontainermultiplied");
+      var element = document.getElementById("multibutton");
       element.classList.add("gridcontainermultiplied");
       document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
       document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
     }
     else if (bonusTimer===(timePlaying-31)){
-      powerLevel = powerLevel-3;
-      clickerFriends = clickerFriends-3;
+      powerLevel = powerLevel - bonusPower;
+      clickerFriends = clickerFriends - bonusClicks;
       bonusBarrier = false;
       var element = document.getElementById("gridcontainer");
+      element.classList.remove("gridcontainermultiplied");
+      var element = document.getElementById("herobutton");
+      element.classList.remove("gridcontainermultiplied");
+      var element = document.getElementById("upbutton");
+      element.classList.remove("gridcontainermultiplied");
+      var element = document.getElementById("clickerbutton");
+      element.classList.remove("gridcontainermultiplied");
+      var element = document.getElementById("multibutton");
       element.classList.remove("gridcontainermultiplied");
       document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
       document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;

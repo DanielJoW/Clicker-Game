@@ -126,9 +126,17 @@ window.onload = function namePlayer(){
   document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
   document.getElementById("startbonus").innerHTML= "You got the AM34 starting bonus.";
   }
+
+  else if (playerName==="Orteil" || playerName==="orteil") {
+  document.getElementById("playertitle").innerHTML= playerName+"'s Cookie Clicker"
+  alert("But that's not you, is it?");
+  window.open('http://orteil.dashnet.org/cookieclicker/', '_blank');
+  document.getElementById("startbonus").innerHTML= "You got the Cookie starting bonus.";
+  }
   else{
   document.getElementById("playertitle").innerHTML= playerName+"'s Big Clicker";
-}}
+}
+}
 
 /* Functions that must repeat constantly */
 

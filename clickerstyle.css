@@ -1,4 +1,3 @@
-
 body{
   background-image: url(newbackground.jpg);
   background-repeat: repeat-x repeat-y;
@@ -32,7 +31,7 @@ font-family: Helvetica;
   border-radius: 7%;
   justify-content: center;
   margin: auto;
-  margin-top: 5vw;
+  margin-top: 3vw;
 }
 
 #buttonzone{
@@ -43,7 +42,7 @@ font-family: Helvetica;
 #herobutton {
   width: 300px;
   height: 300px;
-  background-color: #3399ff;
+  background-color: #fb4558;
   box-shadow: 0px 0px 5px 5px #ffffff;
   font-weight: 600;
   border-radius: 50%;
@@ -51,23 +50,13 @@ font-family: Helvetica;
   font-size: 65px;
 }
 
-.herobutton100k {
-  background-color: #ffff89 !important;
-  color: black !important;
-}
-
-.upbutton20 {
-  background-color: #ffff89 !important;
-  color: black !important;
-}
-
-.friendbutton20 {
+.finalbuttons {
   background-color: #ffff89 !important;
   color: black !important;
 }
 
 .completeachievement{
-  color: #3399ff;
+  color: #4dc9ff;
 }
 
 #playerstats {
@@ -94,22 +83,14 @@ font-family: Helvetica;
 #legacy {
   grid-column: 1;
   grid-row: 3/4;
-  max-width: 250px;
+  max-width: 300px;
 }
 
 #legacy h4{
   font-weight: normal;
   }
 
-#pointsacheivement{
-  font-weight: normal;
-}
-
-#clickeracheivement{
-  font-weight: normal;
-}
-
-#poweracheivement{
+.acheivementweight{
   font-weight: normal;
 }
 
@@ -119,58 +100,87 @@ font-family: Helvetica;
 
 #upgradezone{
   grid-column: 2;
-  grid-row: 3/4;
+  grid-row: 2/4;
   text-align: center;
+  margin-top: 200px;
 }
 
 #upbutton {
   width: 200px;
   height: 50px;
-  background-color: #3399ff;
+  background-color: #4dc9ff;
   color: white;
   font-weight: 600;
   font-size: 18px;
   box-shadow: 0px 0px 5px 5px #ffffff;
-  border-radius: 5%;
+  border-radius: 6%;
   margin-bottom: 2vw;
 }
 
 #clickerbutton {
   width: 200px;
   height: 50px;
-  background-color: #9933ff;
+  background-color: #da72d4;
   color: white;
   font-weight: 600;
   font-family: Helvetica;
   font-size: 18px;
   box-shadow: 0px 0px 5px 5px #ffffff;
-  border-radius: 5%;
+  border-radius: 6%;
+  margin-bottom: 2vw;
+}
+
+#multibutton {
+  width: 200px;
+  height: 50px;
+  background-color: #95d095;
+  color: white;
+  font-weight: 600;
+  font-family: Helvetica;
+  font-size: 18px;
+  box-shadow: 0px 0px 5px 5px #ffffff;
+  border-radius: 6%;
+  margin: auto;
+}
+
+.gridcontainermultiplied{
+  animation-name: tripplerglow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes tripplerglow {
+  0%   {box-shadow: 0px 0px 5px 5px #95d095;}
+  25%  {box-shadow: 0px 0px 5px 5px #fb4558;}
+  50%  {box-shadow: 0px 0px 5px 5px #4dc9ff}
+  75% {box-shadow: 0px 0px 5px 5px #da72d4;}
+  100% {box-shadow: 0px 0px 5px 5px #95d095;}
 }
 
 
-/* Tooltip
+/* Tooltip container */
 .tooltip {
+  position: relative;
 }
 
-
+/* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
+  width: 220px;
   background-color: black;
   color: #fff;
-  min-width: 10vw;
-  font-size: 12px;
   text-align: center;
   padding: 10px;
   border-radius: 6px;
+  font-family: Helvetica;
+  font-size: 12px;
 
-
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
   z-index: 1;
-  margin-left: 56vw;
+  margin-left: 5px;
 }
 
-
+/* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
-}
-
-*/

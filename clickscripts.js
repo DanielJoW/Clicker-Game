@@ -1,15 +1,18 @@
 /* Key Variables */
 
 var i = 0;
-var allTimeI = 0;
 var powerLevel = 1;
 var clickerFriends = 0;
 var powerCost = 100;
 var friendCost = 100;
+var bonusCost = 1000;
+var achievementCount = 0;
 var achievementOne = false;
 var achievementTwo = false;
 var achievementThree = false;
+var achievementFour = false;
 var achievementsMax = false;
+var allTimeI = 0;
 var timePlaying = 0;
 
 /* Key Functions */
@@ -42,24 +45,65 @@ function buyClicker(){
   else {
     alert("You need " + friendCost + " points to enlist a Clicker Friend!")
   }
+}
 
+function multiplier(){
+  if (i>=bonusCost){
+  document.getElementById("herobutton").innerHTML= i -= bonusCost;
+  bonusCost = bonusCost*3;
+  var bonusTimer = timePlaying;
+  powerLevel = powerLevel+3;
+  clickerFriends = clickerFriends+3;
+  setInterval(function(){
+    if (bonusTimer>=(timePlaying-30)){
+      var element = document.getElementById("gridcontainer");
+      element.classList.add("gridcontainermultiplied");
+      document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
+      document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
+    }
+    else if (bonusTimer===(timePlaying-31)){
+      powerLevel = powerLevel-3;
+      clickerFriends = clickerFriends-3;
+      var element = document.getElementById("gridcontainer");
+      element.classList.remove("gridcontainermultiplied");
+      document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
+      document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
+    }
+  }, 1000);
+}
+else {
+  alert("You need " + bonusCost + " points to triple your power!");
+}
 }
 
 /*Naming Function with Easter Eggs */
 
 window.onload = function namePlayer(){
   var playerName = window.prompt("Please enter your name!");
-  if (playerName==="Dan"){
+  if (playerName==="Dan" || playerName==="dan"){
   alert("You share a name with the creator. Enjoy a free power level.");
   powerLevel += 1;
   document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
   document.getElementById("playertitle").innerHTML= playerName+"'s Big Clicker";
+  document.getElementById("startbonus").innerHTML= "You got the Creator starting bonus.";
   }
-  else if (playerName==="" || playerName===null){
+  else if (playerName==="" || playerName===null || playerName==="Coward" || playerName==="coward") {
   document.getElementById("playertitle").innerHTML= "Coward's Big Clicker"
   alert("The coward clicks not for themselves.");
   clickerFriends += 1;
-  document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + powerLevel;
+  powerLevel -= 1;
+  document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
+  document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
+  document.getElementById("startbonus").innerHTML= "You got the Coward starting bonus.";
+  }
+  else if (playerName==="Auston Matthews" || playerName==="AM34" || playerName==="am34") {
+  document.getElementById("playertitle").innerHTML= playerName+"'s Big Clicker"
+  alert("My hero, my friend, my son.");
+  clickerFriends += 5;
+  powerLevel += 4;
+  document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
+  document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
+  document.getElementById("startbonus").innerHTML= "You got the AM34 starting bonus.";
   }
   else{
   document.getElementById("playertitle").innerHTML= playerName+"'s Big Clicker";
@@ -71,14 +115,6 @@ setInterval(function(){
   if (i > 0){
   document.getElementById("clicktotaltitle").innerHTML= "The Big Clicker ("+i+")";
 }},3000);
-
-/*setInterval(function(){
-  document.getElementById("powerBuy").innerHTML= "Your points per click is equal to your Power Level. You need "+powerCost+" more points to power up!";
-},1000);
-
-setInterval(function(){
-  document.getElementById("friendBuy").innerHTML= "Each Invisible Clicker clicks once per second. You need "+friendCost+" points to enlist another!";
-},1000);*/
 
 setInterval(function(){
   if (clickerFriends >=1){
@@ -95,6 +131,18 @@ setInterval(function(){
   document.getElementById("clicksmade").innerHTML= "You've clicked " + allTimeI + " times.";
   }
 },500);
+
+setInterval(function(){
+  document.getElementById("powerBuy").innerHTML= "Your points per click equals your Power Level. "+powerCost+" more points to power up!";
+},1000);
+
+setInterval(function(){
+  document.getElementById("friendBuy").innerHTML= "Each Invisible Clicker clicks once per second. "+friendCost+" points to enlist another!";
+},1000);
+
+setInterval(function(){
+  document.getElementById("multiBuy").innerHTML= "Adds 3 to each click bonus for 30 seconds. The price triples after each use. "+bonusCost+" points needed!";
+},1000);
 
 setInterval(function(){
   timePlaying += 1;
@@ -119,85 +167,69 @@ setInterval(function(){
 
 setInterval(function(){
 if (i >= 100000 && achievementOne === false){
-
   var element = document.getElementById("pointsacheivement");
   element.classList.add("completeachievement");
   alert("Achievement unlocked! You hit 100000 points!");
+  achievementCount +=1;
   achievementOne = true;
 }
 },10000);
 
 setInterval(function(){
 if (powerLevel >= 20 && achievementTwo === false){
-
   var element = document.getElementById("poweracheivement");
   element.classList.add("completeachievement");
   alert("Achievement unlocked! You reached a Power Level of 20!");
+  achievementCount +=1;
   achievementTwo = true;
 }
 },10000);
 
 setInterval(function(){
 if (clickerFriends >= 20 && achievementThree === false){
-
   var element = document.getElementById("clickeracheivement");
   element.classList.add("completeachievement");
   alert("Achievement unlocked! You have 20 invisible clickers!");
+  achievementCount +=1;
   achievementThree = true;
 }
 },10000);
 
-/* Acheivement Tracker.
-Return to this later. There is for sure a better way to count achievements.*/
+setInterval(function(){
+  if (allTimeI >= 10000 && achievementFour === false){
+    var element = document.getElementById("clicksacheivement");
+    element.classList.add("completeachievement");
+    alert("Achievement unlocked! You have clicked 10,000 times!");
+    achievementCount +=1;
+    achievementFour = true;
+  }
+})
+
+/* Acheivement Tracker.*/
 
 setInterval(function(){
-if (achievementOne === true && achievementTwo === false && achievementThree === false){
-  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 1/3";
-}
-},10000);
-
-setInterval(function(){
-if (achievementOne === false && achievementTwo === true && achievementThree === false){
-  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 1/3";
-}
-},10000);
-
-setInterval(function(){
-if (achievementOne === false && achievementTwo === false && achievementThree === true){
-  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 1/3";
-}
-},10000);
-
-setInterval(function(){
-if (achievementOne === true && achievementTwo === true && achievementThree === false){
-  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 2/3";
-}
-},10000);
-
-setInterval(function(){
-if (achievementOne === false && achievementTwo === true && achievementThree === true){
-  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 2/3";
-}
-},10000);
-
-setInterval(function(){
-if (achievementOne === true && achievementTwo === false && achievementThree === true){
-  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 2/3";
-}
-},10000);
-
-setInterval(function(){
-if (achievementOne === true && achievementTwo === true && achievementThree === true && achievementsMax === false){
-  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 3/3";
+  if (achievementCount===1){
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 1/4";
+  }
+  else if (achievementCount===2) {
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 2/4";
+  }
+  else if (achievementCount===3) {
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 3/4";
+  }
+  else if (achievementCount===4 && achievementsMax===false) {
+  document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: 4/4";
   var element = document.getElementById("achievmentcounter");
   element.classList.add("completeachievement");
-  var element = document.getElementById("herobutton");
-  element.classList.add("herobutton100k");
-  var element = document.getElementById("upbutton");
-  element.classList.add("upbutton20");
-  var element = document.getElementById("clickerbutton");
-  element.classList.add("friendbutton20");
+  var element2 = document.getElementById("herobutton");
+  element2.classList.add("finalbuttons");
+  var element3 = document.getElementById("upbutton");
+  element3.classList.add("finalbuttons");
+  var element4 = document.getElementById("clickerbutton");
+  element4.classList.add("finalbuttons");
+  var element5 = document.getElementById("multibutton");
+  element5.classList.add("finalbuttons");
   achievementsMax = true;
   alert("You completed every achievement! Enjoy this rare pastel yellow button set!");
-}
-},10000);
+  }
+},1000);

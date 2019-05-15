@@ -6,6 +6,7 @@ var clickerFriends = 0;
 var powerCost = 100;
 var friendCost = 100;
 var bonusCost = 1000;
+var bonusBarrier = false;
 var achievementCount = 0;
 var achievementOne = false;
 var achievementTwo = false;
@@ -50,6 +51,7 @@ function buyClicker(){
 function multiplier(){
   if (i>=bonusCost){
   document.getElementById("herobutton").innerHTML= i -= bonusCost;
+  bonusBarrier = true;
   bonusCost = bonusCost*3;
   var bonusTimer = timePlaying;
   powerLevel = powerLevel+3;
@@ -64,6 +66,7 @@ function multiplier(){
     else if (bonusTimer===(timePlaying-31)){
       powerLevel = powerLevel-3;
       clickerFriends = clickerFriends-3;
+      bonusBarrier = false;
       var element = document.getElementById("gridcontainer");
       element.classList.remove("gridcontainermultiplied");
       document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
@@ -176,7 +179,7 @@ if (i >= 100000 && achievementOne === false){
 },10000);
 
 setInterval(function(){
-if (powerLevel >= 20 && achievementTwo === false){
+if (powerLevel >= 20 && achievementTwo === false && bonusBarrier === false){
   var element = document.getElementById("poweracheivement");
   element.classList.add("completeachievement");
   alert("Achievement unlocked! You reached a Power Level of 20!");
@@ -186,7 +189,7 @@ if (powerLevel >= 20 && achievementTwo === false){
 },10000);
 
 setInterval(function(){
-if (clickerFriends >= 20 && achievementThree === false){
+if (clickerFriends >= 20 && achievementThree === false && bonusBarrier === false){
   var element = document.getElementById("clickeracheivement");
   element.classList.add("completeachievement");
   alert("Achievement unlocked! You have 20 invisible clickers!");

@@ -28,7 +28,7 @@ function upgrade(){
   if (i>=powerCost){
     document.getElementById("herobutton").innerHTML= i -= powerCost;
     powerLevel += 1;
-    powerCost = Math.round(powerCost*1.4);
+    powerCost = Math.round(powerCost*1.2);
     document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
     }
   else {
@@ -40,7 +40,7 @@ function buyClicker(){
   if (i>=friendCost){
     document.getElementById("herobutton").innerHTML= i -= friendCost;
     clickerFriends += 1;
-    friendCost = Math.round(friendCost*1.4);
+    friendCost = Math.round(friendCost*1.2);
     document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
   }
   else {

@@ -266,4 +266,11 @@ font-family: Helvetica;
   text-align: center;
 }
 
+.tooltip .tooltiptext {
+  width: 250px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -125px;
+}  
+  
 }

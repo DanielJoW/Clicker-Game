@@ -44,7 +44,7 @@ function buyClicker(){
     document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
   }
   else {
-    alert("You need " + friendCost + " points to enlist a Clicker Friend!")
+    alert("You need " + friendCost + " points to enlist an Invisible Clicker!")
   }
 }
 

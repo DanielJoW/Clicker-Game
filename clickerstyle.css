@@ -192,15 +192,20 @@ font-family: Helvetica;
 
 /* Mobile Layout... for now. */
 
-@media (min-width: 320px) and (max-width: 600px) {
+@media (min-width: 320px) and (max-width: 767px) {
 
 #gridcontainer{
-  max-width: 450px;
+  max-width: 300px;
   min-width: 180px;
   grid-column-gap: 0px;
   justify-content: center;
-  margin: 15px 15px 15px 15px;
+  margin: auto;
   border-radius: 3%
+}
+
+#herobutton {
+  width: 200px;
+  height: 200px;
 }
 
 #buttonzone{
@@ -227,11 +232,6 @@ font-family: Helvetica;
 #clickerbutton{
   width: 150px;
   height: 50px;
-}
-
-#herobutton {
-  width: 200px;
-  height: 200px;
 }
 
 #playerlevel{

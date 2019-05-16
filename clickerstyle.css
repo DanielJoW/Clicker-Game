@@ -192,7 +192,7 @@ font-family: Helvetica;
 
 /* Mobile Layout... for now. */
 
-@media only screen(min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 767px) {
 
 #gridcontainer{
   max-width: 300px;

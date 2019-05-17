@@ -52,6 +52,7 @@ font-family: Helvetica;
   border-radius: 50%;
   color: white;
   font-size: 65px;
+  margin-top: 30px;
 }
 
 .finalbuttons {
@@ -106,7 +107,7 @@ font-family: Helvetica;
   grid-column: 2;
   grid-row: 2/4;
   text-align: center;
-  margin-top: 200px;
+  margin-top: 230px;
 }
 
 #upbutton {
@@ -207,6 +208,7 @@ font-family: Helvetica;
   width: 200px;
   height: 200px;
   font-size: 36px;
+  margin-top: 0px;
 }
 
 #buttonzone{
@@ -274,6 +276,6 @@ font-family: Helvetica;
   bottom: 100%;
   left: 50%;
   margin-left: -125px;
-}  
-  
+}
+
 }

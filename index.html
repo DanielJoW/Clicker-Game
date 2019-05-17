@@ -9,9 +9,9 @@
   <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
-  <div id="gridcontainer" class="disable-dbl-tap-zoom">
+  <div id="gridcontainer" class="disable-dbl-tap-zoom willglow">
   <div id="buttonzone">
-  <button type="button" id="herobutton" onclick="increment()">CLICK</button>
+  <button type="button" id="herobutton" class="willglow achievementdone" onclick="increment()">CLICK</button>
 </div>
 <div id=playerstats>
 <h3 id="playertitle"></h3>
@@ -20,15 +20,15 @@
 </div>
 <div id="upgradezone">
 <div id=powerbutton class= "tooltip">
-<button type="button" id="upbutton" onclick="upgrade()">Increase Power Level</button>
+<button type="button" id="upbutton" class= "willglow achievementdone" onclick="upgrade()">Increase Power Level</button>
 <span class="tooltiptext" id="powerBuy"></span>
 </div>
 <div id= friendbutton class= "tooltip">
-<button type="button" id="clickerbutton" onclick="buyClicker()">Enlist Invisible Clicker</button>
+<button type="button" id="clickerbutton" class= "willglow achievementdone" onclick="buyClicker()">Enlist Invisible Clicker</button>
 <span class="tooltiptext" id="friendBuy"></span>
 </div>
 <div id= tripplebutton class= "tooltip">
-<button type="button" id="multibutton" onclick="multiplier()">30 Second Power Trippler</button>
+<button type="button" id="multibutton" class= "willglow achievementdone" onclick="multiplier()">30 Second Power Trippler</button>
 <span class="tooltiptext" id="multiBuy"></span>
 </div>
 </div>
@@ -36,11 +36,13 @@
   <h3 id=achievmentcounter>Achievements Unlocked: 0/4</h4>
   <h4 id=poweracheivement class="acheivementweight">Reach a Power Level of 20.</h4>
   <h4 id=clickeracheivement class="acheivementweight">Enlist 20 Invisible Clickers.</h4>
-  <h4 id=pointsacheivement class="acheivementweight">Reach 100,000 points.</h4>
-  <h4 id=clicksacheivement class="acheivementweight">Reach 10,000 total clicks.</h4>
+  <h4 id=pointsacheivement class="acheivementweight">Have 100,000 points.</h4>
+  <h4 id=clicksacheivement class="acheivementweight">Reach 10,000 clicks all-time.</h4>
+  <h4 id=totalpointsacheivement class="acheivementweight">Reach 500,000 points all-time.</h4>
 </div>
 <div id=legacy>
   <h3>Legacy Stats</h3>
+  <h4 id=totalpoints>You don't have any points yet!</h4>
   <h4 id=clicksmade>You haven't clicked yet!</h4>
   <h4 id=timeplayed>You've played 0 minutes.</h4>
   <div id=easteregg class= "tooltip">

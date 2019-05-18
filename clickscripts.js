@@ -7,6 +7,7 @@ var powerCost = 100;
 var friendCost = 100;
 var bonusCost = 333;
 var bonusBarrier = false;
+var bonusOnBonus = 0;
 var achievementCount = 0;
 var achievementOne = false;
 var achievementTwo = false;
@@ -94,9 +95,10 @@ function buyClicker(){
 }
 
 function multiplier(){
-  if (i>=bonusCost){
+  if (i>=bonusCost && bonusOnBonus < 2){
   document.getElementById("herobutton").innerHTML= i -= bonusCost;
   bonusBarrier = true;
+  bonusOnBonus+=1;
   bonusCost = bonusCost*3;
   var bonusTimer = timePlaying;
   var bonusPower = powerLevel*3
@@ -117,6 +119,7 @@ function multiplier(){
       powerLevel = powerLevel - bonusPower;
       clickerFriends = clickerFriends - bonusClicks;
       bonusBarrier = false;
+      bonusOnBonus = 0;
       var x = document.getElementsByClassName("willglow");
       var y;
       for (y=0; y < x.length; y++){
@@ -126,6 +129,9 @@ function multiplier(){
       document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
     }
   }, 1000);
+}
+else if (bonusOnBonus === 2){
+  alert("You can only bonus your bonus once! Don't get crazy!");
 }
 else {
   alert("You need " + bonusCost + " points to triple your power!");

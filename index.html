@@ -11,6 +11,23 @@
 <body>
   <div id="gridcontainer" class="disable-dbl-tap-zoom willglow">
   <div id="buttonzone">
+    <input type="image" id="modalBtn" src="hamburger.png" onclick="openModal()">
+    <div id="simpleModal" class="modal">
+      <div class="modal-content">
+        <span class="closeBtn" onclick="closeModal()">&times;</span>
+        <p><br><strong>Hi!</strong><br><br>It was my 2019 new years resolution to learn coding,
+          and so far this is the summation of those efforts. I had a lot of fun making this, but I think
+          I need to stop fussing with it or I'll never move on to bigger and better things.<br><br>
+          Dedicated to Emily who I've ignored several nights now trying to learn how all of this nonsense works,
+          and of course to Cookie Clicker-- my very clear and obvious inspiration.<br><br>Thanks for playing!</p>
+        <p><em>Dan</em></p>
+        <div id="backgroundselector">
+          <input type="image" class="backgroundselectorbutton" src="newbackground.jpg" onclick="backgroundSwitch()">
+          <input type="image" class="backgroundselectorbutton" src="newbackground2.jpg" onclick="backgroundSwitch2()">
+          <input type="image" class="backgroundselectorbutton" src="newbackground3.jpg" onclick="backgroundSwitch3()">
+        </div>
+      </div>
+    </div>
   <button type="button" id="herobutton" class="willglow achievementdone" onclick="increment()">CLICK</button>
 </div>
 <div id=playerstats>
@@ -34,8 +51,14 @@
 </div>
 <div id=achievements>
   <h3 id=achievmentcounter>Achievements Unlocked: 0/5</h4>
+  <div id=powercheaper class="tooltip">
   <h4 id=poweracheivement class="acheivementweight">Reach a Power Level of 20.</h4>
+  <span class="tooltiptext">A Power Level of 20 makes all Power Levels 15% cheaper.</span>
+  </div>
+  <div id=doubleclickers class= "tooltip">
   <h4 id=clickeracheivement class="acheivementweight">Enlist 20 Invisible Clickers.</h4>
+  <span class="tooltiptext">Enlisting 20 Invisible Clickers will allow them to begin clicking twice per second.</span>
+  </div>
   <h4 id=pointsacheivement class="acheivementweight">Have 100,000 points.</h4>
   <h4 id=clicksacheivement class="acheivementweight">Reach 10,000 clicks all-time.</h4>
   <h4 id=totalpointsacheivement class="acheivementweight">Reach 500,000 points all-time.</h4>

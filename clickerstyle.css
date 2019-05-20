@@ -55,6 +55,15 @@ font-family: Helvetica;
   margin-top: 30px;
 }
 
+#modalBtn{
+  position: absolute;
+  z-index: 1;
+  width: 35px;
+  height: 35px;
+  margin-left: 300px;
+  margin-top: 10px;
+}
+
 .finalbuttons {
   background-color: #ffff89 !important;
   color: black !important;
@@ -191,6 +200,54 @@ font-family: Helvetica;
   visibility: visible;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4)
+}
+
+.modal-content {
+  background-color: white;
+  margin: 20% auto;
+  padding: 40px;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+}
+
+.closeBtn {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+}
+
+.closeBtn:hover,.closeBtn:focus{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#backgroundselector{
+  text-align: right;
+  position: inline-block;
+}
+
+.backgroundselectorbutton{
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-style: solid;
+  border-width: 1px;
+  text-align: right;
+}
+
+
 /* Mobile Layout... for now. */
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -232,6 +289,7 @@ font-family: Helvetica;
 
 #playertitle{
   text-align: center;
+  max-width: 235px;
 }
 
 #clickerbutton{
@@ -276,6 +334,17 @@ font-family: Helvetica;
   bottom: 100%;
   left: 50%;
   margin-left: -125px;
+}
+
+#modalBtn{
+  width: 25px;
+  height: 25px;
+  margin-left: 210px;
+  margin-top: -122px;
+}
+
+#backgroundselector{
+  text-align: center;
 }
 
 }

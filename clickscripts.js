@@ -3,7 +3,9 @@
 var i = 0;
 var powerLevel = 1;
 var clickerFriends = 0;
+var clickEfficiency = 1;
 var powerCost = 100;
+var powerMod = 1.3;
 var friendCost = 100;
 var bonusCost = 333;
 var bonusBarrier = false;
@@ -21,12 +23,14 @@ var timePlaying = 0;
 
 /* Key Functions */
 
+/* Increment & Achievements*/
+
 function increment(){
   i += (1*powerLevel);
   allTimePoints += (1*powerLevel);
   allTimeI += 1;
   document.getElementById("herobutton").innerHTML=i;
-  document.getElementById("totalpoints").innerHTML="You earned " + allTimePoints + " points all-time!";
+  document.getElementById("totalpoints").innerHTML="You earned " + allTimePoints + " points all-time.";
   if (i >= 100000 && achievementOne === false){
     var element = document.getElementById("pointsacheivement");
     element.classList.add("completeachievement");
@@ -56,11 +60,13 @@ function increment(){
   }
 }
 
+/* Power Level Increase & Achievement*/
+
 function upgrade(){
   if (i>=powerCost){
     document.getElementById("herobutton").innerHTML= i -= powerCost;
     powerLevel += 1;
-    powerCost = Math.round(powerCost*1.3);
+    powerCost = Math.round(powerCost*powerMod);
     document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
     }
   else {
@@ -69,11 +75,14 @@ function upgrade(){
   if (powerLevel >= 20 && achievementTwo === false && bonusBarrier === false){
     var element = document.getElementById("poweracheivement");
     element.classList.add("completeachievement");
-    alert("Achievement unlocked! You reached a Power Level of 20!");
+    alert("Achievement unlocked! You reached a Power Level of 20! Each power level is now 15% cheaper.");
+    powerMod-=0.15;
     achievementCount +=1;
     achievementTwo = true;
   }
 }
+
+/* Enlist Invisible Clicker & Achievement*/
 
 function buyClicker(){
   if (i>=friendCost){
@@ -88,11 +97,14 @@ function buyClicker(){
   if (clickerFriends >= 20 && achievementThree === false && bonusBarrier === false){
     var element = document.getElementById("clickeracheivement");
     element.classList.add("completeachievement");
-    alert("Achievement unlocked! You have 20 invisible clickers!");
+    alert("Achievement unlocked! You have 20 invisible clickers! They now click twice per second.");
     achievementCount +=1;
+    clickEfficiency +=1;
     achievementThree = true;
   }
 }
+
+/* Point Multiplier */
 
 function multiplier(){
   if (i>=bonusCost && bonusOnBonus < 2){
@@ -141,6 +153,9 @@ else {
 /* Time Played Counter, Invisible Clicker Incrementing, Tooltip Cost Updates, Title Updates, and Achievement Tracker */
 
 setInterval(function(){
+
+  /* Time Counter */
+
   timePlaying += 1;
   if (timePlaying <60){
   document.getElementById("timeplayed").innerHTML= "You've played for " + timePlaying + " seconds.";
@@ -157,11 +172,14 @@ setInterval(function(){
   else if (timePlaying >=5400){
   document.getElementById("timeplayed").innerHTML= "You've played for " + Math.round(timePlaying/3600) + " hours.";
   }
+
+  /* Invisible Clicker Increment*/
+
   if (clickerFriends >=1){
-    i += (1*clickerFriends);
+    i += (clickEfficiency*clickerFriends);
     allTimePoints += (1*clickerFriends);
     document.getElementById("herobutton").innerHTML=i;
-    document.getElementById("totalpoints").innerHTML="You earned " + allTimePoints + " points all-time!";
+    document.getElementById("totalpoints").innerHTML="You earned " + allTimePoints + " points all-time.";
     if (allTimePoints >= 500000 && achievementFive === false){
       var element = document.getElementById("totalpointsacheivement");
       element.classList.add("completeachievement");
@@ -177,9 +195,15 @@ setInterval(function(){
       achievementOne = true;
     }
   }
+
+  /* Tooltip Updater */
+
   document.getElementById("powerBuy").innerHTML= "Your points per click equals your Power Level. "+powerCost+" more points to power up!";
   document.getElementById("friendBuy").innerHTML= "Each Invisible Clicker clicks once per second. "+friendCost+" points to enlist another!";
   document.getElementById("multiBuy").innerHTML= "Adds 3 to each click bonus for 30 seconds. The price triples after each use. "+bonusCost+" points needed!";
+
+  /*Achievement Tracker*/
+
   document.getElementById("achievmentcounter").innerHTML="Achievements Unlocked: "+achievementCount+"/5";
   if (achievementCount===5 && achievementsMax===false) {
   var element = document.getElementById("achievmentcounter");
@@ -197,7 +221,7 @@ setInterval(function(){
   }
 },1000);
 
-/*Naming Function with Easter Eggs */
+/*Naming Function*/
 
 window.onload = function namePlayer(){
   var playerName = window.prompt("Please enter your name!");
@@ -228,4 +252,30 @@ window.onload = function namePlayer(){
   }
 document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
 document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
+}
+
+/* Modal Attempt */
+
+function openModal(){
+  var modal = document.getElementById("simpleModal");
+  modal.style.display="block";
+}
+
+function closeModal(){
+  var modal = document.getElementById("simpleModal");
+  modal.style.display="none";
+}
+
+/* Background Changer */
+
+function backgroundSwitch(){
+  document.body.style.backgroundImage = "url('newbackground.jpg')";
+}
+
+function backgroundSwitch2(){
+  document.body.style.backgroundImage = "url('newbackground2.jpg')";
+}
+
+function backgroundSwitch3(){
+  document.body.style.backgroundImage = "url('newbackground3.jpg')";
 }

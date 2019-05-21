@@ -113,8 +113,8 @@ function multiplier(){
   bonusOnBonus+=1;
   bonusCost = bonusCost*3;
   var bonusTimer = timePlaying;
-  var bonusPower = powerLevel*3
-  var bonusClicks = clickerFriends*3
+  var bonusPower = powerLevel*2
+  var bonusClicks = clickerFriends*2
   powerLevel = powerLevel + bonusPower;
   clickerFriends = clickerFriends + bonusClicks;
   setInterval(function(){

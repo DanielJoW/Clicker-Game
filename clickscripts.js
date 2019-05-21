@@ -200,7 +200,7 @@ setInterval(function(){
 
   document.getElementById("powerBuy").innerHTML= "Your points per click equals your Power Level. "+powerCost+" more points to power up!";
   document.getElementById("friendBuy").innerHTML= "Each Invisible Clicker clicks once per second. "+friendCost+" points to enlist another!";
-  document.getElementById("multiBuy").innerHTML= "Adds 3 to each click bonus for 30 seconds. The price triples after each use. "+bonusCost+" points needed!";
+  document.getElementById("multiBuy").innerHTML= "Triples everything for 30 seconds. The price triples after each use. "+bonusCost+" points needed!";
 
   /*Achievement Tracker*/
 

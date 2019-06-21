@@ -177,7 +177,7 @@ setInterval(function(){
 
   if (clickerFriends >=1){
     i += (clickEfficiency*clickerFriends);
-    allTimePoints += (1*clickerFriends);
+    allTimePoints += (clickEfficiency*clickerFriends);
     document.getElementById("herobutton").innerHTML=i;
     document.getElementById("totalpoints").innerHTML="You earned " + allTimePoints + " points all-time.";
     if (allTimePoints >= 500000 && achievementFive === false){

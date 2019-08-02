@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="favicon.png" type="image/png" />
 </head>
-<body>
+<body onload="namePlayer()" id="wholescreen">
   <div id="gridcontainer" class="disable-dbl-tap-zoom willglow">
   <div id="buttonzone">
     <input type="image" id="modalBtn" src="hamburger.png" onclick="openModal()">
@@ -21,6 +21,9 @@
           Dedicated to Emily who I've ignored several nights now trying to learn how all of this nonsense works,
           and of course to Cookie Clicker-- my very clear and obvious inspiration.<br><br>Thanks for playing!</p>
         <p><em>Dan</em></p>
+        <div id="resetbutton">
+          <button type="button" id="resetbutton" onclick="resetGame()">Reset The Game</button>
+        </div>
         <div id="backgroundselector">
           <input type="image" class="backgroundselectorbutton" src="newbackground.jpg" onclick="backgroundSwitch()">
           <input type="image" class="backgroundselectorbutton" src="newbackground2.jpg" onclick="backgroundSwitch2()">
@@ -59,9 +62,9 @@
   <h4 id=clickeracheivement class="acheivementweight">Enlist 20 Invisible Clickers.</h4>
   <span class="tooltiptext">Enlisting 20 Invisible Clickers will allow them to begin clicking twice per second.</span>
   </div>
-  <h4 id=pointsacheivement class="acheivementweight">Have 100,000 points.</h4>
-  <h4 id=clicksacheivement class="acheivementweight">Reach 10,000 clicks all-time.</h4>
-  <h4 id=totalpointsacheivement class="acheivementweight">Reach 500,000 points all-time.</h4>
+  <h4 id=pointsacheivement class="acheivementweight">Have 100000 points.</h4>
+  <h4 id=clicksacheivement class="acheivementweight">Reach 10000 clicks all-time.</h4>
+  <h4 id=totalpointsacheivement class="acheivementweight">Reach 500000 points all-time.</h4>
 </div>
 <div id=legacy>
   <h3>Legacy Stats</h3>

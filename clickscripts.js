@@ -1,5 +1,6 @@
 /* Key Variables */
 
+
 var i = 0;
 var powerLevel = 1;
 var clickerFriends = 0;
@@ -20,6 +21,105 @@ var achievementsMax = false;
 var allTimeI = 0;
 var allTimePoints = 0;
 var timePlaying = 0;
+var endGame = 0;
+
+/* Returning Players */
+
+  var pointsCheck = localStorage.getItem("storedPoints");
+  if (pointsCheck !== null){
+  var i = JSON.parse(pointsCheck);
+  }
+
+  var powerlvlCheck = localStorage.getItem("storedPower");
+  if (powerlvlCheck !== null){
+  var powerLevel = JSON.parse(powerlvlCheck);
+  }
+
+  var powercostCheck = localStorage.getItem("storedPcost");
+  if (powercostCheck !== null){
+  var powerCost = JSON.parse(powercostCheck);
+  }
+
+  var clickfriendCheck = localStorage.getItem("storedFriends");
+  if (clickfriendCheck !== null){
+  var clickerFriends = JSON.parse(clickfriendCheck);
+  }
+
+  var clickcostCheck = localStorage.getItem("storedFcost");
+  if (clickcostCheck !== null){
+  var friendCost = JSON.parse(clickcostCheck);
+  }
+
+  var bonuscostCheck = localStorage.getItem("storedBcost");
+  if (bonuscostCheck !== null){
+  var bonusCost = JSON.parse(bonuscostCheck);
+  }
+
+  var efficiencyCheck = localStorage.getItem("storedEfficiency");
+  if (efficiencyCheck !== null){
+  var clickEfficiency = JSON.parse(efficiencyCheck);
+  }
+
+  var pmodCheck = localStorage.getItem("storedPmod");
+  if (pmodCheck !== null){
+  var powerMod = JSON.parse(pmodCheck);
+  }
+
+  var clicksCheck = localStorage.getItem("storedClicks");
+  if (clicksCheck !== null){
+  var allTimeI = JSON.parse(clicksCheck);
+  }
+
+  var highscoreCheck = localStorage.getItem("storedHighscore");
+  if (highscoreCheck !== null){
+  var allTimePoints = JSON.parse(highscoreCheck);
+  }
+
+  var acountCheck = localStorage.getItem("storedAcount");
+  if (acountCheck !== null){
+  var achievementCount = JSON.parse(acountCheck);
+  }
+
+  var aoneCheck = localStorage.getItem("storedAone");
+  if (aoneCheck !== null){
+  var achievementOne = JSON.parse(aoneCheck);
+  }
+
+  var atwoCheck = localStorage.getItem("storedAtwo");
+  if (atwoCheck !== null){
+  var achievementTwo = JSON.parse(atwoCheck);
+  }
+
+  var athreeCheck = localStorage.getItem("storedAthree");
+  if (athreeCheck !== null){
+  var achievementThree = JSON.parse(athreeCheck);
+  }
+
+  var afourCheck = localStorage.getItem("storedAfour");
+  if (afourCheck !== null){
+  var achievementFour = JSON.parse(afourCheck);
+  }
+
+  var afiveCheck = localStorage.getItem("storedAfive");
+  if (afiveCheck !== null){
+  var achievementFive = JSON.parse(afiveCheck);
+  }
+
+  var amaxCheck = localStorage.getItem("storedAmax");
+  if (amaxCheck !== null){
+  var achievementsMax = JSON.parse(amaxCheck);
+  }
+
+  var timeCheck = localStorage.getItem("storedTime");
+  if (timeCheck !== null) {
+    var timePlaying = JSON.parse(timeCheck);
+  }
+
+  var endGameCheck = localStorage.getItem("storedEndGame");
+  if (endGameCheck !== null) {
+    var endGame = JSON.parse(endGameCheck);
+  }
+
 
 /* Key Functions */
 
@@ -38,10 +138,10 @@ function increment(){
     achievementCount +=1;
     achievementOne = true;
   }
-  if (allTimeI >= 10000 && achievementFour === false){
+  if (allTimeI >= (10000+(111*endGame)) && achievementFour === false){
     var element = document.getElementById("clicksacheivement");
     element.classList.add("completeachievement");
-    alert("Achievement unlocked! You have clicked 10,000 times!");
+    alert("Achievement unlocked! You have clicked " + (10000+(111*endGame)) + " times!");
     achievementCount +=1;
     achievementFour = true;
   }
@@ -160,10 +260,10 @@ setInterval(function(){
   if (timePlaying <60){
   document.getElementById("timeplayed").innerHTML= "You've played for " + timePlaying + " seconds.";
   }
-  else if (timePlaying >=60 && timePlaying <= 89){
+  else if (timePlaying >=60 && timePlaying <= 119){
   document.getElementById("timeplayed").innerHTML= "You've played for " + Math.round(timePlaying/60) + " minute.";
   }
-  else if (timePlaying >=90 && timePlaying <= 3599){
+  else if (timePlaying >=119 && timePlaying <= 3599){
   document.getElementById("timeplayed").innerHTML= "You've played for " + Math.round(timePlaying/60) + " minutes.";
   }
   else if (timePlaying >=3600 && timePlaying <= 5399){
@@ -219,13 +319,108 @@ setInterval(function(){
   if (i > 0){
   document.getElementById("clicktotaltitle").innerHTML= "The Big Clicker ("+i+")";
   }
+
 },1000);
+
+setInterval(function(){
+
+/* Save Progress */
+
+if (bonusBarrier === false) {
+  var storedPoints = i;
+  var localPoints = JSON.stringify(storedPoints);
+  localStorage.setItem("storedPoints",localPoints);
+
+  var storedPower = powerLevel;
+  var localPower = JSON.stringify(storedPower);
+  localStorage.setItem("storedPower",localPower);
+
+  var storedFriends = clickerFriends;
+  var localFriends = JSON.stringify(storedFriends);
+  localStorage.setItem("storedFriends",localFriends);
+
+  var storedEfficiency = clickEfficiency;
+  var localEfficiency = JSON.stringify(storedEfficiency);
+  localStorage.setItem("storedEfficiency",localEfficiency);
+
+  var storedPcost = powerCost;
+  var localPcost = JSON.stringify(storedPcost);
+  localStorage.setItem("storedPcost",localPcost);
+
+  var storedFcost = friendCost;
+  var localFcost = JSON.stringify(storedFcost);
+  localStorage.setItem("storedFcost",localFcost);
+
+  var storedBcost = bonusCost;
+  var localBcost = JSON.stringify(storedBcost);
+  localStorage.setItem("storedBcost",localBcost);
+
+  var storedPmod = powerMod;
+  var localPmod = JSON.stringify(storedPmod);
+  localStorage.setItem("storedPmod",localPmod);
+
+  var storedClicks = allTimeI;
+  var localClicks = JSON.stringify(storedClicks);
+  localStorage.setItem("storedClicks",localClicks);
+
+  var storedHighscore = allTimePoints;
+  var localHighscore = JSON.stringify(storedHighscore);
+  localStorage.setItem("storedHighscore",localHighscore);
+
+  var storedAcount = achievementCount;
+  var localAcount = JSON.stringify(storedAcount);
+  localStorage.setItem("storedAcount",localAcount);
+
+  var storedAone = achievementOne;
+  var localAone = JSON.stringify(storedAone);
+  localStorage.setItem("storedAone",localAone);
+
+  var storedAtwo = achievementTwo;
+  var localAtwo = JSON.stringify(storedAtwo);
+  localStorage.setItem("storedAtwo",localAtwo);
+
+  var storedAthree = achievementThree;
+  var localAthree = JSON.stringify(storedAthree);
+  localStorage.setItem("storedAthree",localAthree);
+
+  var storedAfour = achievementFour;
+  var localAfour = JSON.stringify(storedAfour);
+  localStorage.setItem("storedAfour",localAfour);
+
+  var storedAfive = achievementFive;
+  var localAfive = JSON.stringify(storedAfive);
+  localStorage.setItem("storedAfive",localAfive);
+
+  var storedAmax = achievementsMax;
+  var localAmax = JSON.stringify(storedAmax);
+  localStorage.setItem("storedAmax",localAmax);
+
+
+  var storedTime = timePlaying;
+  var localTime = JSON.stringify(storedTime);
+  localStorage.setItem("storedTime",localTime);
+  }
+
+},30000);
 
 /*Naming Function*/
 
-window.onload = function namePlayer(){
+function namePlayer(){
+  var nameCheck = localStorage.getItem("storedName");
+  if (nameCheck === null){
   var playerName = window.prompt("Please enter your name!");
+  var satanCheck = localStorage.getItem("storedEndGame");
+  var satanTrue = JSON.parse(satanCheck);
+  if (satanTrue === 6){
+    var element = document.getElementById("wholescreen");
+    element.classList.add("finalform");
+    var playerName = "ʞƆI˥Ɔ";
+    document.getElementById("startbonus").innerHTML= "You got the ƎW˥˥Iʞ staring bonus.";
+  }
   document.getElementById("playertitle").innerHTML= playerName+"'s Big Clicker";
+  var storedName = playerName;
+  var localName = JSON.stringify(storedName);
+  localStorage.setItem("storedName",localName);
   if (playerName==="Dan" || playerName==="dan"){
   alert("You share a name with the creator. Enjoy a free power level.");
   powerLevel += 1;
@@ -252,6 +447,85 @@ window.onload = function namePlayer(){
   }
 document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
 document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
+document.getElementById("clicksacheivement").innerHTML="Reach " + (10000+(111*endGame)) + " clicks all-time."
+}
+
+/* If there's a name already */
+
+if (typeof nameCheck === "string"){
+  var playerName = JSON.parse(nameCheck);
+  alert("Welcome back " + playerName + "!");
+  document.getElementById("herobutton").innerHTML=i;
+  document.getElementById("playertitle").innerHTML= playerName+"'s Big Clicker";
+  if (playerName==="Dan" || playerName==="dan"){
+  document.getElementById("startbonus").innerHTML= "You got the Creator starting bonus.";
+  }
+  else if (playerName==="" || playerName===null || playerName==="Coward" || playerName==="coward") {
+  document.getElementById("playertitle").innerHTML= "Coward's Big Clicker"
+  document.getElementById("startbonus").innerHTML= "You got the Coward starting bonus.";
+  }
+  else if (playerName==="Auston Matthews" || playerName==="AM34" || playerName==="am34") {
+  document.getElementById("startbonus").innerHTML= "You got the AM34 starting bonus.";
+  }
+  else if (playerName==="Orteil" || playerName==="orteil") {
+  document.getElementById("playertitle").innerHTML= playerName+"'s Cookie Clicker"
+  document.getElementById("startbonus").innerHTML= "You got the Cookie starting bonus.";
+  }
+  document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
+  document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
+  document.getElementById("clicksmade").innerHTML= "You clicked " + allTimeI + " times.";
+  document.getElementById("totalpoints").innerHTML="You earned " + allTimePoints + " points all-time.";
+  document.getElementById("clicksacheivement").innerHTML="Reach " + (10000+(111*endGame)) + " clicks all-time."
+  var aOneStyleCheck = localStorage.getItem("storedAone");
+  var aOneTrue = JSON.parse(aOneStyleCheck);
+  if (aOneTrue === true){
+    var element = document.getElementById("pointsacheivement");
+    element.classList.add("completeachievement");
+    }
+  var aTwoStyleCheck = localStorage.getItem("storedAtwo");
+  var aTwoTrue = JSON.parse(aTwoStyleCheck);
+  if (aTwoTrue === true){
+    var element = document.getElementById("poweracheivement");
+    element.classList.add("completeachievement");
+  }
+  var aThreeStyleCheck = localStorage.getItem("storedAthree");
+  var aThreeTrue = JSON.parse(aThreeStyleCheck);
+  if (aThreeTrue === true){
+    var element = document.getElementById("clickeracheivement");
+    element.classList.add("completeachievement");
+  }
+  var aFourStyleCheck = localStorage.getItem("storedAfour");
+  var aFourTrue = JSON.parse(aFourStyleCheck);
+  if (aFourTrue === true){
+    var element = document.getElementById("clicksacheivement");
+    element.classList.add("completeachievement");
+  }
+  var aFiveStyleCheck = localStorage.getItem("storedAfive");
+  var aFiveTrue = JSON.parse(aFiveStyleCheck);
+  if (aFiveTrue === true){
+    var element = document.getElementById("totalpointsacheivement");
+    element.classList.add("completeachievement");
+  }
+  var satanCheck = localStorage.getItem("storedEndGame");
+  var satanTrue = JSON.parse(satanCheck);
+  if (satanTrue === 6){
+    var element = document.getElementById("wholescreen");
+    element.classList.add("finalform");
+    document.getElementById("startbonus").innerHTML= "You got the ƎW˥˥Iʞ staring bonus.";
+
+  }
+  var aMaxStyleCheck = localStorage.getItem("storedAmax");
+  var aMaxTrue = JSON.parse(aMaxStyleCheck);
+  if (aMaxTrue === true) {
+  var element = document.getElementById("achievmentcounter");
+  element.classList.add("completeachievement");
+  var x = document.getElementsByClassName("achievementdone");
+  var y;
+  for (y=0; y < x.length; y++){
+  x[y].classList.add("finalbuttons");
+  }
+  }
+}
 }
 
 /* Modal Attempt */
@@ -278,4 +552,79 @@ function backgroundSwitch2(){
 
 function backgroundSwitch3(){
   document.body.style.backgroundImage = "url('newbackground3.jpg')";
+}
+
+/* Reset */
+
+function resetGame(){
+  var gameKill = window.prompt("Enter RELEASE ME to reset your progress!");
+  if (gameKill === "RELEASE ME" && achievementsMax === true && endGame < 5){
+    alert("You are one step closer.")
+    localStorage.removeItem("storedPoints");
+    localStorage.removeItem("storedName");
+    localStorage.removeItem("storedPower");
+    localStorage.removeItem("storedFriends");
+    localStorage.removeItem("storedEfficiency");
+    localStorage.removeItem("storedPcost");
+    localStorage.removeItem("storedFcost");
+    localStorage.removeItem("storedBcost");
+    localStorage.removeItem("storedPmod");
+    localStorage.removeItem("storedClicks");
+    localStorage.removeItem("storedHighscore");
+    localStorage.removeItem("storedAcount");
+    localStorage.removeItem("storedAone");
+    localStorage.removeItem("storedAtwo");
+    localStorage.removeItem("storedAthree");
+    localStorage.removeItem("storedAfour");
+    localStorage.removeItem("storedAfive");
+    localStorage.removeItem("storedAmax");
+    localStorage.removeItem("storedTime");
+    localStorage.removeItem("storedPoints");
+    endGame += 1;
+    var storedEndGame = endGame;
+    var localEndGame = JSON.stringify(storedEndGame);
+    localStorage.setItem("storedEndGame",localEndGame);
+    location.reload();
+  }
+  else if (gameKill === "RELEASE ME" && achievementsMax === true && endGame === 5){
+    alert("It has begun.");
+    localStorage.removeItem("storedPoints");
+    localStorage.removeItem("storedName");
+    localStorage.removeItem("storedPower");
+    localStorage.removeItem("storedFriends");
+    localStorage.removeItem("storedEfficiency");
+    localStorage.removeItem("storedPcost");
+    localStorage.removeItem("storedFcost");
+    localStorage.removeItem("storedBcost");
+    localStorage.removeItem("storedPmod");
+    localStorage.removeItem("storedClicks");
+    localStorage.removeItem("storedHighscore");
+    localStorage.removeItem("storedAcount");
+    localStorage.removeItem("storedAone");
+    localStorage.removeItem("storedAtwo");
+    localStorage.removeItem("storedAthree");
+    localStorage.removeItem("storedAfour");
+    localStorage.removeItem("storedAfive");
+    localStorage.removeItem("storedAmax");
+    localStorage.removeItem("storedTime");
+    localStorage.removeItem("storedPoints");
+    endGame += 1;
+    var storedEndGame = endGame;
+    var localEndGame = JSON.stringify(storedEndGame);
+    localStorage.setItem("storedEndGame",localEndGame);
+    location.reload();
+  }
+  else if (gameKill === "RELEASE ME" && achievementsMax === true && endGame === 6){
+    alert("It is over.");
+    localStorage.clear();
+    location.reload();
+  }
+  else if (gameKill === "RELEASE ME" && achievementsMax === false){
+    alert("Very well.");
+    localStorage.clear();
+    location.reload();
+  }
+  else {
+    alert("You have chosen to continue.")
+  }
 }

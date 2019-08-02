@@ -247,6 +247,15 @@ font-family: Helvetica;
   text-align: right;
 }
 
+#resetbutton{
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.finalform{
+  filter:invert(1) !important;
+  background-image: url(newbackground4.jpg) !important;
+}
 
 /* Mobile Layout... for now. */
 
@@ -344,6 +353,10 @@ font-family: Helvetica;
 }
 
 #backgroundselector{
+  text-align: center;
+}
+
+#resetbutton{
   text-align: center;
 }
 

@@ -130,7 +130,7 @@ function increment(){
   allTimePoints += (1*powerLevel);
   allTimeI += 1;
   document.getElementById("herobutton").innerHTML=i;
-  document.getElementById("totalpoints").innerHTML="You earned " + allTimePoints + " points all-time.";
+  document.getElementById("totalpoints").innerHTML="You've earned " + allTimePoints + " points.";
   if (i >= 100000 && achievementOne === false){
     var element = document.getElementById("pointsacheivement");
     element.classList.add("completeachievement");
@@ -153,10 +153,10 @@ function increment(){
     achievementFive = true;
   }
   if (allTimeI === 1){
-  document.getElementById("clicksmade").innerHTML= "You clicked " + allTimeI + " time.";
+  document.getElementById("clicksmade").innerHTML= "You've clicked " + allTimeI + " time.";
   }
   else {
-  document.getElementById("clicksmade").innerHTML= "You clicked " + allTimeI + " times.";
+  document.getElementById("clicksmade").innerHTML= "You've clicked " + allTimeI + " times.";
   }
 }
 
@@ -260,10 +260,10 @@ setInterval(function(){
   if (timePlaying <60){
   document.getElementById("timeplayed").innerHTML= "You've played for " + timePlaying + " seconds.";
   }
-  else if (timePlaying >=60 && timePlaying <= 119){
+  else if (timePlaying >=60 && timePlaying <= 90){
   document.getElementById("timeplayed").innerHTML= "You've played for " + Math.round(timePlaying/60) + " minute.";
   }
-  else if (timePlaying >=119 && timePlaying <= 3599){
+  else if (timePlaying >=91 && timePlaying <= 3599){
   document.getElementById("timeplayed").innerHTML= "You've played for " + Math.round(timePlaying/60) + " minutes.";
   }
   else if (timePlaying >=3600 && timePlaying <= 5399){
@@ -279,7 +279,7 @@ setInterval(function(){
     i += (clickEfficiency*clickerFriends);
     allTimePoints += (clickEfficiency*clickerFriends);
     document.getElementById("herobutton").innerHTML=i;
-    document.getElementById("totalpoints").innerHTML="You earned " + allTimePoints + " points all-time.";
+    document.getElementById("totalpoints").innerHTML="You've earned " + allTimePoints + " points.";
     if (allTimePoints >= 500000 && achievementFive === false){
       var element = document.getElementById("totalpointsacheivement");
       element.classList.add("completeachievement");
@@ -298,9 +298,9 @@ setInterval(function(){
 
   /* Tooltip Updater */
 
-  document.getElementById("powerBuy").innerHTML= "Your points per click equals your Power Level. "+powerCost+" more points to power up!";
+  document.getElementById("powerBuy").innerHTML= "Your points per click equals your Power Level. "+powerCost+" points to power up!";
   document.getElementById("friendBuy").innerHTML= "Each Invisible Clicker clicks once per second. "+friendCost+" points to enlist another!";
-  document.getElementById("multiBuy").innerHTML= "Triples everything for 30 seconds. The price triples after each use. "+bonusCost+" points needed!";
+  document.getElementById("multiBuy").innerHTML= "Triples everything for 30 seconds. Price triples after each use. "+bonusCost+" points to start trippling!";
 
   /*Achievement Tracker*/
 
@@ -416,6 +416,11 @@ function namePlayer(){
     element.classList.add("finalform");
     var playerName = "ʞƆI˥Ɔ";
     document.getElementById("startbonus").innerHTML= "You got the ƎW˥˥Iʞ staring bonus.";
+    powerLevel += 665;
+    clickerFriends += 666;
+    powerCost += 666566;
+    friendCost += 666566;
+    bonusCost += 666333;
   }
   document.getElementById("playertitle").innerHTML= playerName+"'s Big Clicker";
   var storedName = playerName;
@@ -473,7 +478,7 @@ if (typeof nameCheck === "string"){
   }
   document.getElementById("playerlevel").innerHTML= "Power Level: " + powerLevel;
   document.getElementById("clickeramount").innerHTML= "Invisible Clickers: " + clickerFriends;
-  document.getElementById("clicksmade").innerHTML= "You clicked " + allTimeI + " times.";
+  document.getElementById("clicksmade").innerHTML= "You've clicked " + allTimeI + " times.";
   document.getElementById("totalpoints").innerHTML="You earned " + allTimePoints + " points all-time.";
   document.getElementById("clicksacheivement").innerHTML="Reach " + (10000+(111*endGame)) + " clicks all-time."
   var aOneStyleCheck = localStorage.getItem("storedAone");
